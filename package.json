@@ -1,0 +1,19 @@
+{
+  "name": "kanap",
+  "version": "1.0.0",
+  "description": "site de vente de canapé en ligne",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zkine/Zkine_projet5_Kanap_07092022.io.git"
+  },
+  "author": "Philippe JAYMES",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zkine/Zkine_projet5_Kanap_07092022.io/issues"
+  },
+  "homepage": "https://github.com/Zkine/Zkine_projet5_Kanap_07092022.io#readme"
+}
