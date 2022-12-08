@@ -54,7 +54,7 @@ function addToCart() {
 
   /* Blouche qui pour incrémenter la quantité */
   for (let i = 0; i < produitchoisi.length; i++) {
-    /* S'il ni à pas de tableau enregistré, on enregistre le tableau dans le local storage */
+    /* S'il ni à pas de produit enregistré, on enregistre le produit dans le local storage */
     if (
       !produitLocalStorage &&
       produitchoisi[i]["produitcolors"] &&
@@ -67,7 +67,7 @@ function addToCart() {
       alert("Votre produit a bien été enregisté.");
       
 
-      /* S'il y a un tableau présent dans le local storage, on compare l'id et la couleur et on met à jour la quantité si les valeurs précédentes sont identiques */
+      /* S'il y a un produit présent dans le local storage, on compare l'id et la couleur et on met à jour la quantité si les valeurs précédentes sont identiques */
     } else if (
       produitLocalStorage &&
       produitchoisi[i]["produitcolors"] &&
@@ -79,7 +79,7 @@ function addToCart() {
           el[i]["produitcolors"] === produitchoisi[i]["produitcolors"]
       )
     ) {
-      /* Recherche dans le localstorage que id soit égale à id du tableau et que la couleur égale à la couleur du tableau */
+      /* Recherche dans le localstorage que id soit égale à id du produit et que la couleur égale à la couleur du produit */
       let resultFind = produitLocalStorage.find(
         (el) =>
           el[i]["produitid"] === produitchoisi[i]["produitid"] &&
@@ -93,7 +93,7 @@ function addToCart() {
         "La quantité choisie a bien été ajoutée au produit."
       );
 
-      /* S'il y a un tableau présent dans le local storage, qu'il n'a pas le même id et même couleur on rajoute le produit dans le local storage */
+      /* S'il y a un produit présent dans le local storage, qu'il n'a pas le même id et même couleur on rajoute le produit dans le local storage */
     } else if (
       produitLocalStorage &&
       produitchoisi[i]["produitcolors"] &&

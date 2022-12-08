@@ -90,7 +90,7 @@ fetch("http://localhost:3000/api/products")
     }
   })
   .catch(function (err) {
-    alert("Une erreur est survenue");
+    alert("Une erreur est survenue.");
   });
 /* function qui permet que le DOM soit complétement chargé  */
 
@@ -467,11 +467,11 @@ function Commande() {
     } else if (validLastName === false) {
       alert("le champ Nom être rempli.");
     } else if (validAddress === false) {
-      alert("le champ Address être rempli.");
+      alert("le champ Addresse être rempli.");
     } else if (validCity === false) {
-      alert("le champ City être rempli.");
+      alert("le champ Ville être rempli.");
     } else if (validMail === false) {
-      alert("le champ Mail être rempli");
+      alert("le champ Email être rempli");
     }
   });
 }
