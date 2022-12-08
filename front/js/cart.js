@@ -90,7 +90,7 @@ fetch("http://localhost:3000/api/products")
     }
   })
   .catch(function (err) {
-    /* Une erreur est survenue */
+    alert("Une erreur est survenue");
   });
 /* function qui permet que le DOM soit complétement chargé  */
 
@@ -223,9 +223,9 @@ window.addEventListener("load", function () {
   /* Calcule du prix global */
   function calculePrixGlobal() {
     priceCanape.forEach(function (element) {
-      prixTotal = element.firstChild.data;
-      let priceCanapeId = element.parentNode.parentNode.parentNode.dataset.id;
-      let priceCanapeColor =
+      const prixTotal = element.firstChild.data;
+      const priceCanapeId = element.parentNode.parentNode.parentNode.dataset.id;
+      const priceCanapeColor =
         element.parentNode.parentNode.parentNode.dataset.color;
       let resultatFind = produitLocalStorage.find(
         (el) =>
@@ -233,7 +233,7 @@ window.addEventListener("load", function () {
           el[0]["produitcolors"] === priceCanapeColor
       );
 
-      prixProduit = prixTotal * resultatFind[0]["produitquantity"];
+      const prixProduit = prixTotal * resultatFind[0]["produitquantity"];
       calculPrix.push(prixProduit);
       const initialValue = 0;
       const somme = calculPrix.reduce(
@@ -244,6 +244,7 @@ window.addEventListener("load", function () {
     });
   }
   calculePrixGlobal();
+
   /* Calcule du prix global après modification de la quantité */
   function PrixGlobalMifQuantite() {
     for (let j = 0; j < itemQuantity.length; j++) {
@@ -305,7 +306,7 @@ window.addEventListener("load", function () {
           totalPrice.innerText = somme;
         } else {
           priceCanapeSup.forEach(function (element) {
-            prixTotal = element.firstChild.data;
+            let prixTotal = element.firstChild.data;
             let priceCanapeId =
               element.parentNode.parentNode.parentNode.dataset.id;
             let priceCanapeColor =
@@ -317,7 +318,7 @@ window.addEventListener("load", function () {
                 el[0]["produitcolors"] === priceCanapeColor
             );
 
-            prixProduit = prixTotal * resultatFind[0]["produitquantity"];
+            const prixProduit = prixTotal * resultatFind[0]["produitquantity"];
             calculPrix.push(prixProduit);
             const initialValue = 0;
             const somme = calculPrix.reduce(
@@ -332,6 +333,7 @@ window.addEventListener("load", function () {
   }
   PrixGlobalSup();
 });
+
 /* Sécurisation des donnés ajoutés */
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -342,7 +344,7 @@ const regExpNom = new RegExp("^[a-zA-Z]{2,}$");
 const regExpAdresse = new RegExp("^[0-9A-Za-z\\s]{3,}$");
 const regExpVille = new RegExp("^[a-zA-Z]{2,}$");
 const regExpEmail = new RegExp(
-  "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$"
+  "^[a-z0-9.-_]+[@]{1}[a-z0-9.-_]+[.]{1}[a-z]{2,4}$"
 );
 
 const inputPrenom = document.getElementById("firstName");

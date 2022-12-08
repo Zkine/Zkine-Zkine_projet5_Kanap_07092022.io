@@ -64,6 +64,8 @@ function addToCart() {
       produitLocalStorage = [];
       produitLocalStorage.push(produitchoisi);
       localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
+      alert("Votre produit a bien été enregisté.");
+      
 
       /* S'il y a un tableau présent dans le local storage, on compare l'id et la couleur et on met à jour la quantité si les valeurs précédentes sont identiques */
     } else if (
@@ -87,6 +89,9 @@ function addToCart() {
         produitchoisi[i]["produitquantity"] + resultFind[i]["produitquantity"];
       resultFind[i]["produitquantity"] = newQuantite;
       localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
+      alert(
+        "La quantité choisie a bien été ajoutée au produit."
+      );
 
       /* S'il y a un tableau présent dans le local storage, qu'il n'a pas le même id et même couleur on rajoute le produit dans le local storage */
     } else if (
@@ -97,6 +102,7 @@ function addToCart() {
     ) {
       produitLocalStorage.push(produitchoisi);
       localStorage.setItem("produit", JSON.stringify(produitLocalStorage));
+      alert("Votre produit a bien été enregisté.");
       /* Sinon message d'alerte pour choisir une couleur et un nombre pour valider l'article */
     } else {
       alert(
