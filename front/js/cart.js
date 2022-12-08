@@ -465,13 +465,13 @@ function Commande() {
     } else if (validName === false) {
       alert("le champ Prénom doit être rempli.");
     } else if (validLastName === false) {
-      alert("le champ Nom être rempli.");
+      alert("le champ Nom doit être rempli.");
     } else if (validAddress === false) {
-      alert("le champ Addresse être rempli.");
+      alert("le champ Addresse doit être rempli.");
     } else if (validCity === false) {
-      alert("le champ Ville être rempli.");
+      alert("le champ Ville doit être rempli.");
     } else if (validMail === false) {
-      alert("le champ Email être rempli");
+      alert("le champ Email doit git être rempli");
     }
   });
 }
