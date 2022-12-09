@@ -333,7 +333,7 @@ setTimeout(function() {
     }
   }
   PrixGlobalSup();
-}, 300);
+}, 600);
 
 /* Sécurisation des donnés ajoutés */
 
