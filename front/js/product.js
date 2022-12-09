@@ -43,6 +43,7 @@ function addToCart() {
 
   /* Initialisation du local storage */
   let produitLocalStorage = JSON.parse(localStorage.getItem("produit"));
+  
   /* Initialisation d'un tableau objet */
   let produitchoisi = [
     {

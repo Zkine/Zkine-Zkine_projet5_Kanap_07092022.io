@@ -94,20 +94,21 @@ fetch("http://localhost:3000/api/products")
   });
 /* function qui permet que le DOM soit complétement chargé  */
 
-window.addEventListener("load", function () {
+setTimeout(function() {
+
   const itemQuantity = document.querySelectorAll(".itemQuantity");
   const deleteItem = document.querySelectorAll(".deleteItem");
   const totalQuantity = document.getElementById("totalQuantity");
   const totalPrice = document.getElementById("totalPrice");
+
+
 
   let priceCanape = document.querySelectorAll(
     ".cart__item__content__description :nth-child(3)"
   );
 
   let calculQuantity = [];
-
   let calculPrix = [];
-
   /* Modification de la qantité d'un produit dans le localstorage */
   function modifquantite() {
     itemQuantity.forEach((el) =>
@@ -116,8 +117,8 @@ window.addEventListener("load", function () {
         event.stopPropagation();
         const newValeur = parseInt(event.target.value);
         const article = event.target.closest("article");
-        let idProduit = article.dataset.id;
-        let colorsProduit = article.dataset.color;
+        const idProduit = article.dataset.id;
+        const colorsProduit = article.dataset.color;
 
         if (newValeur === 0 || newValeur > 100) {
           alert(
@@ -332,7 +333,7 @@ window.addEventListener("load", function () {
     }
   }
   PrixGlobalSup();
-});
+}, 200);
 
 /* Sécurisation des donnés ajoutés */
 
@@ -471,7 +472,7 @@ function Commande() {
     } else if (validCity === false) {
       alert("le champ Ville doit être rempli.");
     } else if (validMail === false) {
-      alert("le champ Email doit git être rempli");
+      alert("le champ Email doit être rempli.");
     }
   });
 }
