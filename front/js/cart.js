@@ -94,14 +94,11 @@ fetch("http://localhost:3000/api/products")
   });
 /* function qui permet que le DOM soit complétement chargé  */
 
-setTimeout(function() {
-
+setTimeout(function () {
   const itemQuantity = document.querySelectorAll(".itemQuantity");
   const deleteItem = document.querySelectorAll(".deleteItem");
   const totalQuantity = document.getElementById("totalQuantity");
   const totalPrice = document.getElementById("totalPrice");
-
-
 
   let priceCanape = document.querySelectorAll(
     ".cart__item__content__description :nth-child(3)"
@@ -166,31 +163,41 @@ setTimeout(function() {
 
   /* Calcule de la quantité global */
   function calculeQuantite() {
-    for (let i = 0; i < produitLocalStorage.length; i++) {
-      calculQuantity.push(produitLocalStorage[i][0].produitquantity);
-
-      const initialValue = 0;
-      const somme = calculQuantity.reduce(
-        (accumulator, currentValue) => accumulator + currentValue,
-        initialValue
+    if (!produitLocalStorage) {
+      alert(
+        "Vous devez ajouter un ou des produit(s) au panier pour valider votre commande"
       );
-
-      totalQuantity.innerText = somme;
-      itemQuantity.forEach((element) =>
-        element.addEventListener("change", function (event) {
-          event.stopPropagation();
-          calculQuantity.length = 0;
-          for (let e = 0; e < produitLocalStorage.length; e++) {
-            calculQuantity.push(produitLocalStorage[e][0].produitquantity);
-            const initialValue = 0;
-            const somme = calculQuantity.reduce(
-              (accumulator, currentValue) => accumulator + currentValue,
-              initialValue
-            );
-            totalQuantity.innerText = somme;
-          }
-        })
+    } else if (produitLocalStorage.length === 0){
+      alert(
+        "Vous n'avez plus de produit dans le panier. Veuiller ajouter de nouveau produit dans le panier pour valider votre commande"
       );
+    } else {
+      for (let i = 0; i < produitLocalStorage.length; i++) {
+        calculQuantity.push(produitLocalStorage[i][0].produitquantity);
+
+        const initialValue = 0;
+        const somme = calculQuantity.reduce(
+          (accumulator, currentValue) => accumulator + currentValue,
+          initialValue
+        );
+
+        totalQuantity.innerText = somme;
+        itemQuantity.forEach((element) =>
+          element.addEventListener("change", function (event) {
+            event.stopPropagation();
+            calculQuantity.length = 0;
+            for (let e = 0; e < produitLocalStorage.length; e++) {
+              calculQuantity.push(produitLocalStorage[e][0].produitquantity);
+              const initialValue = 0;
+              const somme = calculQuantity.reduce(
+                (accumulator, currentValue) => accumulator + currentValue,
+                initialValue
+              );
+              totalQuantity.innerText = somme;
+            }
+          })
+        );
+      }
     }
   }
   calculeQuantite();
@@ -333,7 +340,7 @@ setTimeout(function() {
     }
   }
   PrixGlobalSup();
-}, 600);
+}, 700);
 
 /* Sécurisation des donnés ajoutés */
 
@@ -421,8 +428,15 @@ function Commande() {
     event.preventDefault();
     event.stopPropagation();
     let productId = [];
-    for (let i = 0; i < produitLocalStorage.length; i++) {
-      productId.push(produitLocalStorage[i][0]["produitid"]);
+
+    if (!produitLocalStorage || produitLocalStorage.length === 0) {
+      return alert(
+        "Vous devez ajouter un ou des produit(s) au panier pour valider votre commande"
+      );
+    } else {
+      for (let i = 0; i < produitLocalStorage.length; i++) {
+        productId.push(produitLocalStorage[i][0]["produitid"]);
+      }
     }
 
     const order = {
