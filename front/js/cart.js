@@ -167,9 +167,9 @@ setTimeout(function () {
       alert(
         "Vous devez ajouter un ou des produit(s) au panier pour valider votre commande"
       );
-    } else if (produitLocalStorage.length === 0){
+    } else if (produitLocalStorage.length === 0) {
       alert(
-        "Vous n'avez plus de produit dans le panier. Veuiller ajouter de nouveau produit dans le panier pour valider votre commande"
+        "Vous n'avez plus de produit dans le panier. Veuiller en ajouter pour valider votre commande"
       );
     } else {
       for (let i = 0; i < produitLocalStorage.length; i++) {
@@ -340,7 +340,7 @@ setTimeout(function () {
     }
   }
   PrixGlobalSup();
-}, 700);
+}, 800);
 
 /* Sécurisation des donnés ajoutés */
 
